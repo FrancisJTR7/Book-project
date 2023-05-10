@@ -1,22 +1,33 @@
 let myLibrary = [];
 
-//Function creates new object based on user input
-function addBook() {
-  // Get user input through a prompt
-  const name = prompt('Enter book name:');
-  const page = parseInt(prompt('Enter amount of pages in book'));
-  // Create a new object with the user input
+function addBook(event) {
+  event.preventDefault();
+  const name = document.getElementById('name').value;
+  const page = parseInt(document.getElementById('page').value);
   const book = {
     name: name,
     page: page,
   };
-  // Add the new object to myLibrary array
+
   myLibrary.push(book);
-  // Log the new object and the updated array to the console
+
   console.log(book);
   console.log(myLibrary);
+  closeModal();
 }
 
-// Add a click event listener to the button
-const button = document.getElementById('add');
-button.addEventListener('click', addBook);
+function openModal() {
+  const modal = document.getElementById('form-modal');
+  modal.style.display = 'block';
+}
+
+function closeModal() {
+  const modal = document.getElementById('form-modal');
+  modal.style.display = 'none';
+}
+
+const add = document.getElementById('add');
+add.addEventListener('click', openModal);
+
+const form = document.getElementById('user-input-form');
+form.addEventListener('submit', addBook);
