@@ -1,9 +1,23 @@
 let myLibrary = [];
 
+const ul = document.createElement('ul');
+document.body.appendChild(ul);
+
+function update() {
+  ul.innerHTML = '';
+  myLibrary.forEach((object) => {
+    const li = document.createElement('li');
+    li.textContent = `Book Name: ${object.name}, Pages: ${object.page}`;
+    ul.appendChild(li);
+  });
+}
+
 function addBook(event) {
   event.preventDefault();
+
   const name = document.getElementById('name').value;
   const page = parseInt(document.getElementById('page').value);
+
   const book = {
     name: name,
     page: page,
@@ -13,7 +27,12 @@ function addBook(event) {
 
   console.log(book);
   console.log(myLibrary);
+
   closeModal();
+
+  document.getElementById('name').value = '';
+  document.getElementById('page').value = '';
+  update();
 }
 
 function openModal() {
