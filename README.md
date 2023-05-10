@@ -32,4 +32,4 @@ To use the Library application, follow these steps:
 
 ## License
 
-This project is (https://www.theodinproject.com/lessons/node-path-javascript-library) licensed.
+This project is (https://www.theodinproject.com/) licensed.

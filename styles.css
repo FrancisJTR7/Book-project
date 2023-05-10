@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #181e1f;
+}
+
+.nav {
+  height: 80px;
+  background-color: #262527;
+  display: flex;
+}
+
+.title {
+  color: white;
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 20px;
+  margin-left: 50px;
+  margin-top: 5px;
+}
+
+.add {
+  margin-left: 77%;
+  height: 30px;
+  margin-top: 30px;
+  border-radius: 20px;
+  width: 100px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  color: white;
+  background-color: #262527;
+  cursor: pointer;
+  border-color: white;
+  border-width: 2px;
+}
+
+.add:hover {
+  background-color: #181e1f;
+}
