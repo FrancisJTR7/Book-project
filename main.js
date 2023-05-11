@@ -5,10 +5,27 @@ document.body.appendChild(ul);
 
 function update() {
   ul.innerHTML = '';
-  myLibrary.forEach((object) => {
+  myLibrary.forEach((object, index) => {
     const li = document.createElement('li');
+    const btt = document.createElement('button');
+    const rem = document.createElement('button');
+    rem.setAttribute('id', 'remove');
+    rem.textContent = 'Remove';
+    btt.setAttribute('id', 'read');
+    btt.textContent = 'Read';
     li.textContent = `Book Name: ${object.name}, Pages: ${object.page}`;
     ul.appendChild(li);
+    li.appendChild(btt);
+    li.appendChild(rem);
+    btt.style.backgroundColor = object.colored ? 'green' : '#262527';
+    btt.addEventListener('click', function () {
+      object.colored = !object.colored;
+      btt.style.backgroundColor = object.colored ? 'green' : '#262527';
+    });
+    rem.addEventListener('click', function () {
+      myLibrary.splice(index, 1);
+      update();
+    });
   });
 }
 
@@ -21,6 +38,7 @@ function addBook(event) {
   const book = {
     name: name,
     page: page,
+    colored: false,
   };
 
   myLibrary.push(book);
